@@ -36,17 +36,6 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
 
     try {
 
-        // check weather habit is reserved
-        const retrievedHabit = await database.habit.findUnique({ where: { name } });
-
-        //! catch posting duplicate content
-        if (retrievedHabit) return NextResponse.json({
-            data: null,
-            message: `"${retrievedHabit.name}" already exists`,
-            status: 500,
-            success: false,
-        });
-
         const newHabit = await database.habit.create({ data: { name, severity } });
 
         //! return data of new snippet
