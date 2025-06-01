@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  //base
+  id      String   @id @unique @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props 
+  name     String  @unique
+  hash     String
+  tracking Habit[]
+  //relations
+}
+
+model Habit {
+  //base
+  id      String   @id @unique @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props 
+  name     String
+  severity Severity @default(normal)
+
+  //relations
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String?
+}
+
+enum Severity {
+  normal
+  hard
+  hardest
+}
