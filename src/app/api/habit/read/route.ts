@@ -35,7 +35,7 @@ export async function GET(): Promise<NextResponse<APIResponse>> {
             data: { habits: user.tracking },
             message: "Habits retrieved successfully",
             status: 200,
-            success: false,
+            success: true,
         });
 
     } catch (error) {

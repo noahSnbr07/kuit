@@ -5,11 +5,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --stack: rgba(127, 127, 127, .25);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #202020;
     --foreground: #ededed;
   }
 }
@@ -17,5 +18,9 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, sans-serif;
+  height: 100dvh;
+  width: 100dvw;
+  margin: 0px;
+  padding: 0px;
 }
