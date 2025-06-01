@@ -36,7 +36,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
         if (!user) return NextResponse.json({
             success: false,
             message: "User not found",
-            status: 400,
+            status: 404,
             data: null,
         });
 
