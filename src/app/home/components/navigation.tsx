@@ -1,11 +1,10 @@
 'use server';
-import { Camera, Code, LogOut, Settings2 } from "lucide-react";
+import { Camera, LogOut, Plus, Settings2 } from "lucide-react";
 import Link from "next/link";
 
 
 
 export default async function Navigation() {
-
 
     return (
         <div className="grid grid-cols-2 gap-2">
@@ -23,17 +22,17 @@ export default async function Navigation() {
             </Link>
             <Link
                 target="_blank"
+                href={"/create"}
+                className="flex items-center gap-2">
+                <Plus opacity={.5} size={16} />
+                <b> Create </b>
+            </Link>
+            <Link
+                target="_blank"
                 href={"https://instaagram.com/noah.codes.stuff/"}
                 className="flex items-center gap-2">
                 <Camera opacity={.5} size={16} />
                 <b> Social </b>
-            </Link>
-            <Link
-                target="_blank"
-                href={"https://github.com/noahSnbr07/kuit"}
-                className="flex items-center gap-2">
-                <Code opacity={.5} size={16} />
-                <b> Codebase </b>
             </Link>
         </div>
     );

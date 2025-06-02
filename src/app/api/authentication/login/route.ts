@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { sign } from "jsonwebtoken";
 import { compare } from "bcrypt";
 import database from "@/config/database";
+import { cookies } from "next/headers";
 
 /** 
  * @param _request Nextjs Response Extension
@@ -15,6 +16,9 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
     const name = formData.get("name") as string;
     const password = formData.get("password") as string;
     const jwtSecret = process.env.JWT_SECRET as string;
+
+    //retrieve cookies
+    const cookieStore = await cookies();
 
     //check validity of data
     const validName: boolean = name != null && name.length >= 4;
@@ -61,14 +65,21 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
             expiresIn: "24h",
         });
 
+        cookieStore.set({
+            name: "token",
+            value: token,
+            httpOnly: true,
+            path: '/',
+            maxAge: 24 * 60 * 60,
+            sameSite: "lax",
+        });
+
         //! successful authentication of identity
         return NextResponse.json({
             success: true,
             message: "Hash match",
             status: 200,
-            data: {
-                token,
-            },
+            data: null,
         });
 
 

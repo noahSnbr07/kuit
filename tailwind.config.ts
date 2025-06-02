@@ -12,6 +12,8 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         stack: "var(--stack)",
+        accent: "#FF4500FF",
+        warn: "#FFC800FF",
       },
     },
   },
