@@ -1,15 +1,17 @@
 'use server';
-import database from "@/config/database";
+import { Habit } from "@prisma/client";
 import Link from "next/link";
 
-export default async function Recent() {
+interface _props {
+    habits: Habit[];
+}
 
-    const recentHabits = await database.habit.findMany({ take: 3, orderBy: { created: "desc" } });
+export default async function Recent({ habits }: _props) {
 
     return (
         <div className="flex flex-col gap-2">
             <div className="flex flex-col">
-                {recentHabits.map((habit, index) =>
+                {habits.map((habit, index) =>
                     <div
                         key={index}
                         className="odd:bg-stack flex p-2 justify-between items-center">
