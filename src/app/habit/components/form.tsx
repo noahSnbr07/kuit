@@ -50,7 +50,7 @@ export default function Form() {
                 placeholder="name"
             />
 
-            <i className="opacity-50 text-sm"> 1: Normal, 2: Hard, 3: Hardest </i>
+            <i className="opacity-50 text-sm"> 1: Normal, 2: Intermediate, 3: Hard </i>
             <input
                 required
                 defaultValue={2}
@@ -64,7 +64,7 @@ export default function Form() {
                 style={{ opacity: pending ? .5 : 1 }}
                 type="button"
                 onClick={() => handleSubmit()}
-                className="p-2 font-bold text-lg bg-accent">
+                className="p-2 font-bold text-lg bg-accent rounded-md">
                 {pending ? <ClipLoader size={16} color="rgba(255, 25, 255, .25)" /> : "Create new Habit"}
             </button>
 
