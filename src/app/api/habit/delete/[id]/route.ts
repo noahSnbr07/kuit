@@ -3,11 +3,12 @@ import getAuth from "@/functions/get-auth";
 import APIResponse from "@/interfaces/api-response";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(_request: NextRequest): Promise<NextResponse<APIResponse>> {
+export async function POST(_request: NextRequest, { params }: { params: Promise<{ id: string }> }): Promise<NextResponse<APIResponse>> {
 
     //retrieve data
-    const formData = await _request.formData();
-    const id = formData.get("id") as string;
+    const { id } = await params;
+
+    console.log(id)
 
     //ensure resource access in authorized
     const auth = await getAuth();
@@ -54,25 +55,6 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
             status: 403,
             success: false,
         });
-
-        // check if habit is still tracked by any user
-        const isTracked = await database.user.findFirst({
-            where: {
-                tracking: {
-                    some: { id },
-                },
-            },
-        });
-
-        //! catch still-tacked edge case
-        if (isTracked) {
-            return NextResponse.json({
-                data: null,
-                message: "Habit is still being tracked by at least one user",
-                status: 400,
-                success: false,
-            });
-        }
 
         // attempt deletion
         const deleted = await database.habit.delete({ where: { id, userId: auth.id } });
