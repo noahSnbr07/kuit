@@ -31,7 +31,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
 
     try {
         //retrieve target habit
-        const targetHabit = await database.habit.findUnique({ where: { id } });
+        const targetHabit = await database.habit.findUnique({ where: { id, userId: auth.id } });
 
         //! catch invalid target habit id
         if (!targetHabit) return NextResponse.json({

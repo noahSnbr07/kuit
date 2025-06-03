@@ -34,7 +34,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
     try {
 
         // retrieve target
-        const target = await database.habit.findUnique({ where: { id }, include: { user: true } });
+        const target = await database.habit.findUnique({ where: { id, userId: auth.id }, include: { user: true } });
 
         //! catch missing target
         if (!target) return NextResponse.json({
@@ -75,7 +75,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
         }
 
         // attempt deletion
-        const deleted = await database.habit.delete({ where: { id } });
+        const deleted = await database.habit.delete({ where: { id, userId: auth.id } });
         return NextResponse.json({
             data: { id: deleted.id, name: deleted.name },
             message: `"${deleted.name} deleted successfully"`,
