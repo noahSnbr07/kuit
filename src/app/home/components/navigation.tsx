@@ -1,5 +1,5 @@
 'use server';
-import { List, LogOut, Plus, Settings2 } from "lucide-react";
+import { List, Plus, Settings2 } from "lucide-react";
 import Link from "next/link";
 
 export default async function Navigation() {

@@ -1,9 +1,7 @@
 'use server';
 
-import { LogOut } from "lucide-react";
 import getAuth from "@/functions/get-auth";
 import { redirect } from "next/navigation";
-import logout from "@/functions/logout";
 import LogoutButton from "./components/logout-button";
 
 export default async function page() {
