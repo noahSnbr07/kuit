@@ -1,5 +1,6 @@
 import { Habit } from "@prisma/client";
-import { differenceInHours } from "date-fns";
+import { differenceInDays } from "date-fns";
+import severityToNumber from "./severity-to-number";
 
 interface _props {
     habits: Habit[];
@@ -8,6 +9,7 @@ interface _props {
 export default async function getScore({ habits }: _props): Promise<number> {
     const today = new Date();
 
-    return habits.reduce((sum: number, habit) =>
-        sum + differenceInHours(today, habit.created), 0);
+
+    //sum = n-habits * severity factor * days passed
+    return habits.reduce((sum: number, habit) => sum + differenceInDays(today, habit.created) * severityToNumber({ severity: habit.severity }), 0);
 }

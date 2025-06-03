@@ -8,6 +8,8 @@ interface _props {
 
 export default async function Recent({ habits }: _props) {
 
+    if (habits.length <= 0) return <i className="opacity-50"> no habits tracked yet ...</i>
+
     return (
         <div className="flex flex-col gap-2">
             <div className="flex flex-col">

@@ -10,6 +10,8 @@ interface _props {
 
 export default async function Overview({ habits }: _props) {
 
+    if (habits.length <= 0) return <i className="opacity-50"> no habits tracked yet ... </i>
+
     // get longest duration
     const longestStreak = habits[0].created;
     const deltaTime = getFullDelta({

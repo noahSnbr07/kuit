@@ -13,7 +13,7 @@ export default async function page() {
     const auth = await getAuth();
     if (!auth) redirect("/authentication", RedirectType.replace);
 
-    const habits = await database.habit.findMany({});
+    const habits = await database.habit.findMany({ where: { userId: auth.id } });
 
     return (
         <div className="size-full p-4 flex flex-col gap-4">
