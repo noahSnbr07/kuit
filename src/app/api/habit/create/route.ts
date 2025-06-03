@@ -47,7 +47,6 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
 
 
     } catch (error) {
-        console.log(error)
         //! catch unhandled errors
         return NextResponse.json({
             data: null,
