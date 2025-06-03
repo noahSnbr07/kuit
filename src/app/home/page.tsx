@@ -5,13 +5,13 @@ import Overview from "./components/overview";
 import Recent from "./components/recent";
 import Navigation from "./components/navigation";
 import getAuth from "@/functions/get-auth";
-import { redirect, RedirectType } from "next/navigation";
+import { redirect } from "next/navigation";
 import database from "@/config/database";
 
 export default async function page() {
 
     const auth = await getAuth();
-    if (!auth) redirect("/authentication", RedirectType.replace);
+    if (!auth) redirect("/authentication");
 
     const habits = await database.habit.findMany({ where: { userId: auth.id } });
 

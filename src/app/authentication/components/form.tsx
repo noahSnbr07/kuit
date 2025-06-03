@@ -39,7 +39,8 @@ export default function Form() {
         setMessage(data.message || "");
 
         //redirect on success
-        if (data.status === 200 && !data.error && data.success) router.push("/home");
+        console.log(data)
+        if (data.status === 200 && data.success) router.push("/home");
         setPending(false);
     }
 

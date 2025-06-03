@@ -13,11 +13,9 @@ export default async function Recent({ habits }: _props) {
 
     return (
         <div className="flex flex-col gap-2">
-            <div className="flex flex-col">
-                <HabitList
-                    take={3}
-                    habits={habits} />
-            </div>
+            <HabitList
+                take={3}
+                habits={habits} />
             <Link
                 className="opacity-50 underline text-center"
                 href={"/list"}>
