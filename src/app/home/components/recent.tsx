@@ -1,4 +1,5 @@
 'use server';
+import HabitList from "@/utils/habit-list";
 import { Habit } from "@prisma/client";
 import Link from "next/link";
 
@@ -13,18 +14,13 @@ export default async function Recent({ habits }: _props) {
     return (
         <div className="flex flex-col gap-2">
             <div className="flex flex-col">
-                {habits.map((habit, index) =>
-                    <div
-                        key={index}
-                        className="odd:bg-stack flex p-2 justify-between items-center">
-                        <b> {habit.name} </b>
-                        <i className="opacity-50"> {habit.created.toLocaleDateString()} - {habit.created.toLocaleTimeString()} </i>
-                    </div>
-                )}
+                <HabitList
+                    take={3}
+                    habits={habits} />
             </div>
             <Link
                 className="opacity-50 underline text-center"
-                href={"/home"}>
+                href={"/list"}>
                 <i> show all </i>
             </Link>
         </div>

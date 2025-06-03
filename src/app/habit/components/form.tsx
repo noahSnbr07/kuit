@@ -52,6 +52,7 @@ export default function Form() {
 
             <i className="opacity-50 text-sm"> 1: Normal, 2: Intermediate, 3: Hard </i>
             <input
+                autoFocus
                 required
                 defaultValue={2}
                 min={1}

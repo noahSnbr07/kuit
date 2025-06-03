@@ -1,8 +1,6 @@
 'use server';
-import { Camera, LogOut, Plus, Settings2 } from "lucide-react";
+import { List, LogOut, Plus, Settings2 } from "lucide-react";
 import Link from "next/link";
-
-
 
 export default async function Navigation() {
 
@@ -27,11 +25,10 @@ export default async function Navigation() {
                 <b> Create </b>
             </Link>
             <Link
-                target="_blank"
-                href={"https://instaagram.com/noah.codes.stuff/"}
+                href={"/list"}
                 className="flex items-center gap-2">
-                <Camera opacity={.5} size={16} />
-                <b> Social </b>
+                <List opacity={.5} size={16} />
+                <b> Habits </b>
             </Link>
         </div>
     );
