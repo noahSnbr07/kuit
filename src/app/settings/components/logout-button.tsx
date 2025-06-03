@@ -1,26 +1,21 @@
 'use server';
+import logout from "@/functions/logout";
+import { LogOut } from "lucide-react";
 import React from "react";
 
-interface _props {
-    endpoint?: string;
-    action: () => Promise<void>;
-    title: string;
-    icon: React.JSX.Element;
-}
-
-export default async function ActionButton({ endpoint, action, title, icon }: _props) {
+export default async function LogoutButton() {
 
     return (
         <form
             method="POST"
-            action={endpoint || action}
+            action={logout}
             className="bg-stack rounded-lg"
         >
             <button
                 className="p-4 flex gap-4 items-center size-full"
                 type="submit">
-                {icon}
-                <b> {title} </b>
+                <LogOut style={{ opacity: .5 }} size={16} />
+                <b> Logout </b>
             </button>
         </form>
     );
