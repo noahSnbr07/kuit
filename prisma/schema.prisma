@@ -27,16 +27,10 @@ model Habit {
   updated DateTime @updatedAt
 
   //props 
-  name     String
-  severity Severity @default(normal)
+  name  String
+  value Int    @default(2)
 
   //relations
   user   User?   @relation(fields: [userId], references: [id])
   userId String?
-}
-
-enum Severity {
-  normal
-  hard
-  hardest
 }

@@ -1,7 +1,6 @@
 import database from "@/config/database";
 import getAuth from "@/functions/get-auth";
 import APIResponse from "@/interfaces/api-response";
-import { Severity } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(_request: NextRequest): Promise<NextResponse<APIResponse>> {
@@ -9,14 +8,14 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
     // retrieve form data
     const formData = await _request.formData();
     const name = formData.get("name") as string;
-    const severity = formData.get("severity") as Severity;
+    const value = Number(formData.get("value") as string);
 
     // retrieve auth state
     const auth = await getAuth();
 
     // check validity
     const validName: boolean = name != null && name.length >= 4;
-    const validSeverity: boolean = severity != null;
+    const validValue: boolean = value > 0 && value < 4;
 
     //! catch unauthenticated resource access
     if (!auth) return NextResponse.json({
@@ -27,7 +26,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
     });
 
     //! catch invalid form schema
-    if (!validName || !validSeverity) return NextResponse.json({
+    if (!validName || !validValue) return NextResponse.json({
         data: null,
         message: "Invalid form data",
         status: 400,
@@ -36,7 +35,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
 
     try {
 
-        const newHabit = await database.habit.create({ data: { name, severity } });
+        const newHabit = await database.habit.create({ data: { name, value, userId: auth.id }, });
 
         //! return data of new snippet
         return NextResponse.json({
@@ -48,7 +47,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
 
 
     } catch (error) {
-
+        console.log(error)
         //! catch unhandled errors
         return NextResponse.json({
             data: null,

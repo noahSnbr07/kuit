@@ -22,7 +22,7 @@ export default async function Navigation() {
             </Link>
             <Link
                 target="_blank"
-                href={"/create"}
+                href={"/habit/new"}
                 className="flex items-center gap-2">
                 <Plus opacity={.5} size={16} />
                 <b> Create </b>
