@@ -17,8 +17,9 @@ export default async function CoderCat() {
                 alt="Coder Cat"
             />
             <Link
-                href={"/feedback"}
-            > Wanna participate? give feedback! </Link>
+                href={"/feedback"}>
+                <b> Wanna participate? give feedback!  </b>
+            </Link>
         </div>
     );
 }
