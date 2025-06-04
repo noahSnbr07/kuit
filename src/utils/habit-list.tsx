@@ -15,7 +15,7 @@ export default async function HabitList({ habits, take = habits.length }: _props
                 <Link
                     href={`/habit/${habit.id}`}
                     key={_index}
-                    className="flex px-4 py-2 odd:bg-stack justify-between">
+                    className="flex px-4 py-2 odd:bg-stack backdrop-blur-sm justify-between">
                     <div className="flex gap-4">
                         <i> {habit.value} </i>
                         <b> {habit.name} </b>

@@ -23,4 +23,7 @@ body {
   width: 100dvw;
   margin: 0px;
   padding: 0px;
+  background-image: radial-gradient(var(--stack) 3px, transparent 0);
+  background-size: 50px 50px;
+  background-position: center;
 }

@@ -46,7 +46,7 @@ export default function Form() {
                 required
                 name="name"
                 type="text"
-                className="px-2 py-1 bg-stack rounded-md"
+                className="px-2 py-1 bg-stack rounded-md backdrop-blur-sm"
                 placeholder="name"
             />
 
