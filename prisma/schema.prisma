@@ -34,3 +34,17 @@ model Habit {
   user   User?   @relation(fields: [userId], references: [id])
   userId String?
 }
+
+model Feedback {
+  //base
+  id      String   @id @unique @default(uuid())
+  created DateTime @default(now())
+  updated DateTime @updatedAt
+
+  //props 
+  name   String @default("Feedback")
+  body   String
+  rating Int    @default(3)
+
+  //relations 
+}

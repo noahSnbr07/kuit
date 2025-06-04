@@ -27,7 +27,7 @@ export default async function Wrapper({ title, children }: _props) {
                     <b> {title} </b>
                 </nav>
             </header>
-            <main className="flex-1">
+            <main className="flex-1 overflow-y-scroll">
                 {children}
             </main>
         </div>

@@ -1,5 +1,5 @@
 'use server';
-import { List, Plus, Settings2 } from "lucide-react";
+import { List, MessageCircle, Plus, Settings2 } from "lucide-react";
 import Link from "next/link";
 
 export default async function Navigation() {
@@ -23,6 +23,12 @@ export default async function Navigation() {
                 className="flex items-center gap-2">
                 <Settings2 opacity={.5} size={16} />
                 <b> Settings </b>
+            </Link>
+            <Link
+                href={"/feedback"}
+                className="flex items-center gap-2">
+                <MessageCircle opacity={.5} size={16} />
+                <b> Feedback </b>
             </Link>
         </div>
     );

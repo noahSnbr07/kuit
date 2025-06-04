@@ -8,6 +8,7 @@ import getAuth from "@/functions/get-auth";
 import { redirect } from "next/navigation";
 import database from "@/config/database";
 import Motivation from "./components/motivation";
+import CoderCat from "./components/coder-cat";
 
 export default async function page() {
 
@@ -33,6 +34,10 @@ export default async function page() {
             <Card
                 title="Quote">
                 <Motivation />
+            </Card>
+            <Card
+                title="Feedback">
+                <CoderCat />
             </Card>
         </div>
     );
