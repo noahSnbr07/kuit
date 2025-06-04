@@ -7,6 +7,7 @@ import Navigation from "./components/navigation";
 import getAuth from "@/functions/get-auth";
 import { redirect } from "next/navigation";
 import database from "@/config/database";
+import Motivation from "./components/motivation";
 
 export default async function page() {
 
@@ -28,6 +29,10 @@ export default async function page() {
             <Card
                 title="Navigation">
                 <Navigation />
+            </Card>
+            <Card
+                title="Quote">
+                <Motivation />
             </Card>
         </div>
     );
