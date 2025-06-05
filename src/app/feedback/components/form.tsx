@@ -47,7 +47,7 @@ export default function Form() {
                 required
                 name="name"
                 type="text"
-                className="px-2 py-1 bg-stack rounded-md backdrop-blur-sm"
+                className="px-2 py-1 bg-stack rounded-md"
                 placeholder="name"
             />
 
@@ -61,7 +61,7 @@ export default function Form() {
                 name="rating"
             />
             <textarea
-                className="backdrop-blur-md bg-stack rounded-md px-2 py-1"
+                className="bg-stack rounded-md px-2 py-1"
                 placeholder="What is your feedback?"
                 required
                 rows={8}

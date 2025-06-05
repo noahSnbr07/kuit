@@ -9,7 +9,7 @@ export default async function LogoutButton() {
         <form
             method="POST"
             action={logout}
-            className="bg-stack rounded-lg backdrop-blur-sm"
+            className="bg-stack rounded-lg"
         >
             <button
                 className="p-4 flex gap-4 items-center size-full"

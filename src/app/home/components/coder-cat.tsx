@@ -11,6 +11,7 @@ export default async function CoderCat() {
     return (
         <div className="w-full flex flex-col gap-2">
             <Image
+                unoptimized
                 className="rounded-md"
                 src={catCode}
                 title="Coder Cat"

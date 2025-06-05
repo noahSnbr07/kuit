@@ -14,7 +14,7 @@ export default async function Wrapper({ title, children }: _props) {
 
     return (
         <div className="size-full flex flex-col">
-            <header className="bg-stack p-4 gap-4 backdrop-blur-sm">
+            <header className="bg-stack p-4 gap-4">
                 <nav className="flex gap-4 items-center">
                     <Link
                         href={"/home"}>

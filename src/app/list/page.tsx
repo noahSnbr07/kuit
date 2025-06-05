@@ -15,7 +15,9 @@ export default async function page() {
     return (
         <div className="size-full flex flex-col gap-4 p-4">
             <b> See your tracked habits </b>
-            <HabitList habits={habits} />
+            <div className="bg-stack rounded-md p-2">
+                <HabitList habits={habits} />
+            </div>
         </div>
     );
 }
