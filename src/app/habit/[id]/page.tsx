@@ -26,6 +26,10 @@ export default async function page({ params }: { params: Promise<{ id: string }>
             <b> Detailed habit view </b>
             <div className="flex flex-col gap-2">
                 <HabitProp
+                    identifier="Name"
+                    value={habit.name}
+                />
+                <HabitProp
                     identifier="Created"
                     value={`${habit.created.toLocaleDateString()} - ${habit.created.toLocaleTimeString()}`}
                 />

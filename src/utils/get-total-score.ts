@@ -8,7 +8,7 @@ interface _props {
 
 export default async function getTotalScore({ habit }: _props) {
 
-    const days = differenceInDays(habit.created, new Date());
+    const days = differenceInDays(new Date(), habit.created);
     return days * habit.value;
 
 }
