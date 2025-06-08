@@ -19,8 +19,6 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
     const validRating: boolean = rating > 0 && rating < 6;
     const validBody: boolean = body.length > 0;
 
-    console.log({ validName, validRating, validBody, rating })
-
     //! catch unauthenticated resource access
     if (!auth) return NextResponse.json({
         data: null,
@@ -51,7 +49,6 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
 
 
     } catch (error) {
-        console.log(error)
         //! catch unhandled errors
         return NextResponse.json({
             data: null,

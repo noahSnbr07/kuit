@@ -8,8 +8,6 @@ export async function POST(_request: NextRequest, { params }: { params: Promise<
     //retrieve data
     const { id } = await params;
 
-    console.log(id)
-
     //ensure resource access in authorized
     const auth = await getAuth();
     const validId: boolean = id != null && id.length > 0;

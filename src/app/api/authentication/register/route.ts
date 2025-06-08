@@ -38,7 +38,7 @@ export async function POST(_request: NextRequest): Promise<NextResponse<APIRespo
         });
 
         //generated hashed password
-        const hashedPassword = await hash(password, 16);
+        const hashedPassword = await hash(password, 4);
 
         //insert new user
         const newUser = await database.user.create({ data: { name, hash: hashedPassword } });
