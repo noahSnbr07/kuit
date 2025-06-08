@@ -31,7 +31,7 @@ export default async function Overview({ habits }: _props) {
             <div className="flex flex-col">
                 <span> <i>Tracking: </i> <b>{habits.length}</b> </span>
                 <span> <i>Longest: </i> <b>{deltaTime}</b> </span>
-                <span> <i>Value/Day: </i> <b>{dailyValue}</b> </span>
+                <span> <i>Est. Value/Day: </i> <b>{dailyValue}</b> </span>
             </div>
             <div className="size-16 border-accent border-2 rounded-full bg-stack aspect-square grid place-items-center">
                 <b className="text-accent"> {score} </b>
